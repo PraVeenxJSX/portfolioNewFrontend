@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import Resume from './pages/Resume';
 import Footer from './components/Footer';
 
 function AnimatedRoutes() {
@@ -65,19 +64,7 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-        <Route
-          path="/resume"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Resume />
-            </motion.div>
-          }
-        />
+       
       </Routes>
     </AnimatePresence>
   );
