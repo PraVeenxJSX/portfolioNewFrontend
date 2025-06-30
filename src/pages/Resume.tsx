@@ -124,7 +124,7 @@ const Resume = () => {
                   <ul>
                     <li>Node.js</li>
                     <li>Express.js</li>
-                    {/* <li>Python</li> */}
+                    <li>Python</li>
                     <li>Java</li>
                   </ul>
                 </div>
@@ -133,7 +133,7 @@ const Resume = () => {
                   <h4>Database</h4>
                   <ul>
                     <li>MongoDB</li>
-                    <li>PostgreSQL</li>
+                    {/* <li>PostgreSQL</li> */}
                     <li>MySQL</li>
                     {/* <li>Redis</li> */}
                   </ul>

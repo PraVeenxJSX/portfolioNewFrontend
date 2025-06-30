@@ -68,12 +68,7 @@ const Contact = () => {
       content: 'bandelapraveenbandela@gmail.com',
       link: 'bandelapraveenbandela@gmail.com',
     },
-    {
-      icon: FaPhone,
-      title: 'Phone',
-      content: '+91 9121320238',
-      link: 'tel:+15551234567',
-    },
+    
     {
       icon: FaMapMarkerAlt,
       title: 'Location',
