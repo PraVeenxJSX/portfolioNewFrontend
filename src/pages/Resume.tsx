@@ -13,7 +13,7 @@ const Resume = () => {
   });
 
   useEffect(() => {
-    // Simulate loading time for content
+   
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -43,7 +43,7 @@ const Resume = () => {
   };
 
   const handleDownload = () => {
-    // Replace with your actual resume file path
+  
     window.open('./public/PraveenResume.pdf', '_blank');
   };
 
@@ -53,7 +53,7 @@ const Resume = () => {
 
   return (
     <div className={styles['resume-root']}>
-      {/* Background Elements */}
+     
       <div className={styles['background-elements']}>
         <div className={`${styles.circle} ${styles['top-right']}`} />
         <div className={`${styles.circle} ${styles['bottom-left']}`} />
@@ -80,7 +80,7 @@ const Resume = () => {
           </div>
 
           <div className={styles['resume-grid']}>
-            {/* Education Section */}
+         
             <motion.div variants={itemVariants} className={styles['resume-section']}>
               <div className={styles['section-header']}>
                 <FaGraduationCap className={styles.icon} />
@@ -101,7 +101,7 @@ const Resume = () => {
               </div>
             </motion.div>
 
-            {/* Skills Section */}
+           
             <motion.div variants={itemVariants} className={styles['resume-section']}>
               <div className={styles['section-header']}>
                 <FaCode className={styles.icon} />
@@ -115,7 +115,7 @@ const Resume = () => {
                     <li>React.js</li>
                     <li>TypeScript</li>
                     <li>HTML5/CSS3</li>
-                    {/* <li>Redux</li> */}
+                  
                   </ul>
                 </div>
 
@@ -133,9 +133,9 @@ const Resume = () => {
                   <h4>Database</h4>
                   <ul>
                     <li>MongoDB</li>
-                    {/* <li>PostgreSQL</li> */}
+                  
                     <li>MySQL</li>
-                    {/* <li>Redis</li> */}
+                
                   </ul>
                 </div>
 
@@ -143,7 +143,7 @@ const Resume = () => {
                   <h4>Tools & Others</h4>
                   <ul>
                     <li>Git</li>
-                    {/* <li>Docker</li> */}
+                  
                     <li>AWS</li>
                     <li>CI/CD</li>
                   </ul>
