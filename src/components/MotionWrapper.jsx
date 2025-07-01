@@ -1,8 +1,7 @@
 // src/components/MotionWrapper.tsx
 import { motion } from 'framer-motion';
-import type { PropsWithChildren } from 'react';
 
-const MotionWrapper = ({ children }: PropsWithChildren<{}>) => (
+const MotionWrapper = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}

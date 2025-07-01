@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode, HTMLAttributes } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Tilt from 'react-parallax-tilt';
-import { useSpring, animated, SpringValue } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import Loading from '../components/Loading';
 import styles from './Projects.module.scss';
-import type { PropsWithChildren } from 'react';
 
 const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +18,6 @@ const Projects = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,7 +32,8 @@ const Projects = () => {
     },
     {
       title: 'A Blog Writing Website',
-      description: 'A dynamic and engaging platform for blogging, built with modern tech stack.',
+      description:
+        'A dynamic and engaging platform for blogging, built with modern tech stack.',
       technologies: ['React', 'NodeJS', 'Material-UI', 'mongoDB'],
       github: 'https://github.com/yourusername/project2',
       live: 'https://project2.com',
@@ -42,7 +41,8 @@ const Projects = () => {
     },
     {
       title: 'A Veterinary Admin Website',
-      description: 'A streamlined veterinary platform for managing appointments and medical records.',
+      description:
+        'A streamlined veterinary platform for managing appointments and medical records.',
       technologies: ['React', 'nodeJS', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com/yourusername/project3',
       live: 'https://project3.com',
@@ -66,6 +66,7 @@ const Projects = () => {
 
   return (
     <div className={styles['projects-root']}>
+      {/* Background Elements */}
       <div className={styles['background-elements']}>
         <div className={`${styles.circle} ${styles['top-right']}`} />
         <div className={`${styles.circle} ${styles['bottom-left']}`} />
@@ -91,13 +92,13 @@ const Projects = () => {
                 className={styles['project-card']}
               >
                 <AnimatedCard>
-                  <div 
-                    className={styles['project-image']} 
-                    style={{ 
+                  <div
+                    className={styles['project-image']}
+                    style={{
                       backgroundImage: `url(${project.image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat'
+                      backgroundRepeat: 'no-repeat',
                     }}
                   />
                   <div className={styles['project-content']}>
@@ -137,15 +138,7 @@ const Projects = () => {
   );
 };
 
-// ✅ Fixed: AnimatedCard accepts children with proper typing
-interface AnimatedCardProps extends PropsWithChildren {
-  style?: {
-    scale: SpringValue<number>;
-    boxShadow: SpringValue<string>;
-  };
-}
-
-function AnimatedCard({ children }: AnimatedCardProps) {
+function AnimatedCard({ children, ...rest }) {
   const [isHovered, setHovered] = useState(false);
   const spring = useSpring({
     scale: isHovered ? 1.04 : 1,
@@ -157,6 +150,7 @@ function AnimatedCard({ children }: AnimatedCardProps) {
 
   return (
     <animated.div
+      {...rest}
       style={spring}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
