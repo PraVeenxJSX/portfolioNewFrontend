@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Tilt from 'react-parallax-tilt';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, SpringValue } from 'react-spring';
 import Loading from '../components/Loading';
 import styles from './Projects.module.scss';
+import type { PropsWithChildren } from 'react';
 
 const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +16,6 @@ const Projects = () => {
   });
 
   useEffect(() => {
-    // Simulate loading time for content
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -26,23 +26,23 @@ const Projects = () => {
   const projects = [
     {
       title: 'Ancons International',
-      description: 'A full featured Eductional registration website which represents many Universities in USA',
+      description: 'A full featured Educational registration website which represents many Universities in USA',
       technologies: ['React', 'Node.js', 'MongoDB'],
       github: 'https://github.com/PraVeenxJSX/ancons-frontend',
       live: 'https://ancons-frontend.vercel.app/',
       image: '/Ancons.png',
     },
     {
-      title: 'A BLog Writing Website',
-      description: 'A dynamic and engaging platform where I share insights, ideas, and stories on topics that matter. Designed with a user-friendly interface and optimized for seamless navigation, my blog showcases compelling content and a passion for storytelling. Built using [mention the technologies used], it reflects my expertise in web development and content creation.',
+      title: 'A Blog Writing Website',
+      description: 'A dynamic and engaging platform for blogging, built with modern tech stack.',
       technologies: ['React', 'NodeJS', 'Material-UI', 'mongoDB'],
       github: 'https://github.com/yourusername/project2',
       live: 'https://project2.com',
       image: '/blog.png',
     },
     {
-      title: 'A veternary Admin Website',
-      description: 'A streamlined and efficient veterinary administration platform designed to simplify clinic management and enhance patient care. This website enables veterinarians and clinic staff to seamlessly manage appointments, medical records, billing, and client communications—all in one intuitive interface.',
+      title: 'A Veterinary Admin Website',
+      description: 'A streamlined veterinary platform for managing appointments and medical records.',
       technologies: ['React', 'nodeJS', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com/yourusername/project3',
       live: 'https://project3.com',
@@ -60,24 +60,12 @@ const Projects = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   if (isLoading) {
     return <Loading />;
   }
 
   return (
     <div className={styles['projects-root']}>
-      {/* Background Elements */}
       <div className={styles['background-elements']}>
         <div className={`${styles.circle} ${styles['top-right']}`} />
         <div className={`${styles.circle} ${styles['bottom-left']}`} />
@@ -149,7 +137,15 @@ const Projects = () => {
   );
 };
 
-function AnimatedCard({ children }: { children: React.ReactNode }) {
+// ✅ Fixed: AnimatedCard accepts children with proper typing
+interface AnimatedCardProps extends PropsWithChildren {
+  style?: {
+    scale: SpringValue<number>;
+    boxShadow: SpringValue<string>;
+  };
+}
+
+function AnimatedCard({ children }: AnimatedCardProps) {
   const [isHovered, setHovered] = useState(false);
   const spring = useSpring({
     scale: isHovered ? 1.04 : 1,
@@ -158,6 +154,7 @@ function AnimatedCard({ children }: { children: React.ReactNode }) {
       : '0 2px 16px 0 rgba(6,182,212,0.08)',
     config: { tension: 300, friction: 18 },
   });
+
   return (
     <animated.div
       style={spring}
@@ -169,4 +166,4 @@ function AnimatedCard({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default Projects; 
+export default Projects;

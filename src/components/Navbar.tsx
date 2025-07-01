@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes, FaGithub } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import styles from './Navbar.module.scss';
 
 // Add Google Fonts import for a modern signature font
