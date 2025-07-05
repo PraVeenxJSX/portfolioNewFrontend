@@ -21,7 +21,7 @@ const projects = [
     description: 'A dynamic blogging platform built with a modern tech stack.',
     technologies: ['React', 'Node.js', 'Material-UI', 'MongoDB'],
     github: 'https://github.com/yourusername/project2',
-    live: 'https://project2.com',
+    live: 'https://blog-frontend-five-weld.vercel.app/',
     image: '/blog.png',
   },
   {
