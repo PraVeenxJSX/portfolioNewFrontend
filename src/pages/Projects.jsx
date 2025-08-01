@@ -9,6 +9,15 @@ import styles from './Projects.module.scss';
 
 const projects = [
   {
+    title: 'HavensHub Real Estate',
+    description: 'A modern real estate website featuring property listings, Map, Blog and a responsive design.',
+    technologies: ['React', 'Node.js', 'MongoDB'],
+    github: 'https://github.com/PraVeenxJSX/realestate',
+    live: 'https://realestate-five-kappa.vercel.app/',
+    image: '/HavensHub.png',
+  },
+ 
+  {
     title: 'Ancons International',
     description: 'A full-featured educational registration website representing multiple U.S. universities.',
     technologies: ['React', 'Node.js', 'MongoDB'],
@@ -16,6 +25,7 @@ const projects = [
     live: 'https://ancons-new.vercel.app/',
     image: '/Ancons.png',
   },
+  
   {
     title: 'A Blog Writing Website',
     description: 'A dynamic blogging platform built with a modern tech stack.',
