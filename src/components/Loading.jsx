@@ -1,38 +1,29 @@
 import { motion } from 'framer-motion';
 import styles from './Loading.module.scss';
 
-const Loading = () => {
-  return (
-    <div className={styles.loadingContainer}>
+const Loading = () => (
+  <div className={styles.container}>
+    <div className={styles.spinner}>
       <motion.div
-        className={styles.loader}
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <div className={styles.innerCircle} />
-      </motion.div>
-      <motion.p
-        className={styles.loadingText}
-        animate={{
-          opacity: [0.5, 1, 0.5],
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        Loading...
-      </motion.p>
+        className={styles.ring}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
+      />
+      <motion.div
+        className={styles['ring-inner']}
+        animate={{ rotate: -360 }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: 'linear' }}
+      />
+      <div className={styles.dot}></div>
     </div>
-  );
-};
+    <motion.p
+      className={styles.text}
+      animate={{ opacity: [0.4, 1, 0.4] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+    >
+      Loading
+    </motion.p>
+  </div>
+);
 
-export default Loading; 
+export default Loading;

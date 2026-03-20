@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import MotionWrapper from './components/MotionWrapper';
 
@@ -47,6 +48,7 @@ function AnimatedRoutes() {
             </MotionWrapper>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

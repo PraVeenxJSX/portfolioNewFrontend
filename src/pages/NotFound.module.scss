@@ -1,0 +1,54 @@
+$purple: #8b5cf6;
+$emerald: #06d6a0;
+$dark: #050816;
+$text: #e2e8f0;
+$text-dim: #9aa5c2;
+
+.root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $dark;
+  padding: 2rem;
+}
+
+.content {
+  text-align: center;
+}
+
+.code {
+  font-size: clamp(6rem, 18vw, 12rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, $purple, $emerald);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.msg {
+  font-size: 1.1rem;
+  color: $text-dim;
+  margin-bottom: 2.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, $purple, $emerald);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: box-shadow 0.3s, transform 0.25s;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba($purple, 0.35);
+    transform: translateY(-2px);
+  }
+}
