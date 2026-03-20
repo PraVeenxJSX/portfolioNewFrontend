@@ -25,7 +25,7 @@ const projects = [
     description: 'A real-time chat application built with a modern tech stack.',
     technologies: ['React', 'Node.js', 'Material-UI', 'MongoDB'],
     github: 'https://github.com/PraVeenxJSX/CHAT-APP',
-    live: 'https://blog-frontend-five-weld.vercel.app/',
+    live: 'https://chat-frontend2-gzt1.onrender.com/',
     image: '/Chat.png',
   },
   {
